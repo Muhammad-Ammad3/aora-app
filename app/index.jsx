@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <SafeAreaView className="bg-primary h-full">
-      <ScrollView contentContainerStyle={{ height: "100%" }}>
+      <ScrollView contentContainerStyle={{ height: "auto" }}>
         <View
           style={{
             width: "auto",

@@ -1,13 +1,11 @@
 import {
-  Alert,
   FlatList,
   Image,
   RefreshControl,
-  StyleSheet,
   Text,
   View,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../../constants";
 import SearchInput from "../../component/SearchInput";
@@ -17,9 +15,10 @@ import { getAllPosts, getLatestPosts } from "../../lib/appwrite";
 import useAppwrite from "../../lib/useAppwrite";
 import VideoCard from "../../component/VideoCard";
 import { useGlobalContext } from "../../context/GlobalProvider";
+import { StatusBar } from "expo-status-bar";
 
 const Home = () => {
-    const { user, setUser, setIsLoggedIn } = useGlobalContext();
+  const { user, setUser, setIsLoggedIn } = useGlobalContext();
   const { data: posts, refetch } = useAppwrite(getAllPosts);
   const { data: latestPosts } = useAppwrite(getLatestPosts);
 
@@ -34,7 +33,6 @@ const Home = () => {
   return (
     <SafeAreaView className="bg-primary border-2 h-full">
       <FlatList
-        // data={[]}
         data={posts}
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => <VideoCard video={item} />}
@@ -46,13 +44,13 @@ const Home = () => {
                   Welcome back,
                 </Text>
                 <Text className="text-2xl font-psemibold text-white">
-                 {user?.username}
+                  {user?.username}
                 </Text>
               </View>
               <View className="mt-1.5">
                 <Image
                   source={images.logoSmall}
-                  style={{width: 36, height: 40}}
+                  style={{ width: 36, height: 40 }}
                   resizeMode="contain"
                 />
               </View>
@@ -77,10 +75,10 @@ const Home = () => {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       />
+            <StatusBar backgroundColor="#161622" style="light" />
+      
     </SafeAreaView>
   );
 };
 
 export default Home;
-
-const styles = StyleSheet.create({});
