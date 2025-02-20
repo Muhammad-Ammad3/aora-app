@@ -4,6 +4,7 @@ import { icons } from "../constants";
 import { useVideoPlayer, VideoView } from "expo-video";
 import { Link } from "expo-router";
 import { HeartOutlined } from "@ant-design/icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 const VideoCard = ({
   video: {
@@ -15,12 +16,12 @@ const VideoCard = ({
 }) => {
   const [play, setPlay] = useState(false);
   const player = useVideoPlayer(video);
-    
+
   React.useEffect(() => {
-      if (play) {
-        player.play();
-      }
-    }, [play]);
+    if (play) {
+      player.play();
+    }
+  }, [play]);
 
   return (
     <View
@@ -61,8 +62,15 @@ const VideoCard = ({
               resizeMode="cover"
             />
           </View>
-          <View className="justify-center flex-1 ml-3 gap-y-1"
-          style={{justifyContent: "center", flex: 1, marginLeft: 12, rowGap:4}}>
+          <View
+            className="justify-center flex-1 ml-3 gap-y-1"
+            style={{
+              justifyContent: "center",
+              flex: 1,
+              marginLeft: 12,
+              rowGap: 4,
+            }}
+          >
             <Text
               className="text-white font-psemibold text-sm"
               numberOfLines={1}
@@ -77,28 +85,38 @@ const VideoCard = ({
             </Text>
           </View>
         </View>
-        
+
         <View className="pt-2">
-            <HeartOutlined style={{width: 20, height: 20, backgroundColor: "#161622"}} />
+          {/* <HeartOutlined  /> */}
+          <FontAwesome
+            name="heart"
+            style={{
+              backgroundColor: "#517fa4",
+              height: 20,
+              width: 20,
+              justifyContent: "center",
+              alignItems: "center",
+              fontSize: 800
+            }}
+          />
         </View>
-        
       </View>
 
       {play ? (
-         <VideoView
-                  player={player}
-                  style={{
-                    width: "auto",
-                    height: 240,
-                    borderRadius: 12,
-                    marginTop: 12,
-                  }}
-                  nativeControls
-                />
+        <VideoView
+          player={player}
+          style={{
+            width: "auto",
+            height: 240,
+            borderRadius: 12,
+            marginTop: 12,
+          }}
+          nativeControls
+        />
       ) : (
         <TouchableOpacity
-        activeOpacity={0.7}
-        onPress={() => setPlay(true)}
+          activeOpacity={0.7}
+          onPress={() => setPlay(true)}
           style={{
             width: "100%",
             height: 240,
@@ -119,8 +137,11 @@ const VideoCard = ({
             }}
             resizeMode="cover"
           />
-          <Image source={icons.play} resizeMode="contain"
-          style={{width: 48, height: 48, position: "absolute"}} />
+          <Image
+            source={icons.play}
+            resizeMode="contain"
+            style={{ width: 48, height: 48, position: "absolute" }}
+          />
         </TouchableOpacity>
       )}
     </View>
