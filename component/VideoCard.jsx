@@ -2,6 +2,8 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { icons } from "../constants";
 import { useVideoPlayer, VideoView } from "expo-video";
+import { Link } from "expo-router";
+import { HeartOutlined } from "@ant-design/icons";
 
 const VideoCard = ({
   video: {
@@ -59,7 +61,8 @@ const VideoCard = ({
               resizeMode="cover"
             />
           </View>
-          <View className="justify-center flex-1 ml-3 gap-y-1">
+          <View className="justify-center flex-1 ml-3 gap-y-1"
+          style={{justifyContent: "center", flex: 1, marginLeft: 12, rowGap:4}}>
             <Text
               className="text-white font-psemibold text-sm"
               numberOfLines={1}
@@ -74,13 +77,11 @@ const VideoCard = ({
             </Text>
           </View>
         </View>
+        
         <View className="pt-2">
-          <Image
-            source={icons.menu}
-            resizeMode="contain"
-            style={{ width: 20, height: 20 }}
-          />
+            <HeartOutlined style={{width: 20, height: 20, backgroundColor: "#161622"}} />
         </View>
+        
       </View>
 
       {play ? (

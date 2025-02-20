@@ -130,7 +130,7 @@ const player = useVideoPlayer(form.video?.uri || '', (player) => {
           otherStyles="mt-7"
         />
         <CustomButton
-          title="Submit & Publish"
+          title={uploading ? "Uploading..." : "Submit & Publish"}
           handlePress={submit}
           containerStyles="mt-7"
           isLoading={uploading}
