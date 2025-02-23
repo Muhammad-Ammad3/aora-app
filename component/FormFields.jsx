@@ -16,7 +16,7 @@ const FormFields = ({
       <Text className="text-base text-gray-100 font-bold">{title}</Text>
       <View
         style={{
-          width: "auto",
+          width: 340,
           height: 64,
           backgroundColor: "#1E1E2D",
           borderWidth: 2,
@@ -24,7 +24,6 @@ const FormFields = ({
           borderRadius: 16,
           alignItems: "center",
           flexDirection: "row",
-          borderStyle: "solid #FF9C01",
         }}
       >
         <TextInput

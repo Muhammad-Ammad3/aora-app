@@ -87,7 +87,7 @@ const VideoCard = ({
         </View>
 
         <View className="pt-2">
-          {/* <HeartOutlined  /> */}
+          {/* <HeartOutlined  />
           <FontAwesome
             name="heart"
             style={{
@@ -98,7 +98,7 @@ const VideoCard = ({
               alignItems: "center",
               fontSize: 800
             }}
-          />
+          /> */}
         </View>
       </View>
 
